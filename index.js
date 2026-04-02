@@ -1,12 +1,10 @@
 #!/usr/bin/env node
 
-import fs from 'node:fs';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-import prompts from 'prompts';
-import {  green, cyan, } from 'kolorist';
+const fs = require('node:fs');
+const path = require('node:path');
+const prompts = require('prompts');
+const { green, cyan } = require('kolorist');
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const FRAMEWORKS = [
   {

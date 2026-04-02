@@ -1,12 +1,14 @@
 {
-  "name": "js",
+  "name": "widget",
   "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "build:app": "rsbuild build -c rsbuild.config.app.mjs",
-    "build:obs": "rsbuild build -c rsbuild.config.obs.mjs",
-    "build:all": "npm run build:app && npm run build:obs",
+    "build:settings": "rsbuild build -c rsbuild.config.settings.mjs",
+    "build:view": "rsbuild build -c rsbuild.config.view.mjs",
+    "build:settings:watch": "npm run build:settings -- --watch",
+    "build:view:watch": "npm run build:view -- --watch",
+    "build:all": "npm run build:settings && npm run build:view",
     "check": "biome check --write",
     "dev": "rsbuild dev --open",
     "format": "biome format --write",

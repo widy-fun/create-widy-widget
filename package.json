@@ -1,6 +1,6 @@
 {
   "name": "create-widy-widget",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -9,9 +9,12 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module",
+  "type": "commonjs",
   "dependencies": {
     "kolorist": "^1.8.0",
     "prompts": "^2.4.2"
+  },
+  "bin": {
+    "create-widy-widget": "index.js"
   }
 }

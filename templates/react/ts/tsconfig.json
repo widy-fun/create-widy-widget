@@ -21,7 +21,7 @@
     "noUnusedParameters": true
   },
   "include": [
-    "app",
-    "obs"
+    "view",
+    "settings"
   ]
 }
