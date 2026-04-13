@@ -6,22 +6,12 @@ A CLI tool to scaffold a Widy widget project from templates.
 
 `create-widy-widget` prompts for a project name, framework, and language variant, then copies the matching template into a new project folder and generates a basic `manifest.json`.
 
-## Install
 
-```bash
-npm install -g create-widy-widget
-```
-
-Or run locally with `npx`:
-
-```bash
-npx create-widy-widget
-```
 
 ## Usage
 
 ```bash
-create-widy-widget
+npm create widy-widget
 ```
 
 Then follow the prompts:
