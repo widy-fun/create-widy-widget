@@ -1,12 +1,22 @@
 {
   "name": "create-widy-widget",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/widy-fun/create-widy-widget.git"
+  },
+  "homepage": "https://widy.fun",
+  "keywords": [
+    "obs",
+    "twitch",
+    "youtube",
+    "donation"
+  ],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
