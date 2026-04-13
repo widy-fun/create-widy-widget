@@ -2,6 +2,7 @@
 
 const fs = require('node:fs');
 const path = require('node:path');
+const crypto = require('node:crypto');
 const prompts = require('prompts');
 const { green, cyan } = require('kolorist');
 
@@ -65,15 +66,24 @@ async function init() {
 
   const { projectName, framework,language } = result;
 
-  const manifest= {
-    "manifest_version": 1,
-    "name": projectName,
-    "version": "1.0.0",
-    "authors": [],
-    "description": "",
-    "repository": "",
-    "scopes": []
-};
+  const idSlug = projectName
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+  const widgetId = `widget-${idSlug}-${crypto.randomUUID()}`;
+
+  const manifest = {
+    id: widgetId,
+    manifest_version: 1,
+    name: projectName,
+    version: '1.0.0',
+    authors: [],
+    description: '',
+    repository: '',
+    scopes: [],
+    connect_src: [],
+  };
 
   const root = path.join(process.cwd(), projectName);
   const templateDir = path.resolve(__dirname, 'templates', framework,language);
@@ -83,7 +93,7 @@ async function init() {
     fs.mkdirSync(root, { recursive: true });
   }
 
-  fs.writeFileSync(manifestPath,JSON.stringify(manifest));
+  fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
 
   console.log(`\nScaffolding project in ${root}...`);
 
