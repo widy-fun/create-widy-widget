@@ -11,7 +11,7 @@ A CLI tool to scaffold a Widy widget project from templates.
 ## Usage
 
 ```bash
-npm create widy-widget
+npm create widy-widget@latest
 ```
 
 Then follow the prompts:
