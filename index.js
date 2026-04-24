@@ -67,6 +67,7 @@ async function init() {
 
   const manifest= {
     "manifest_version": 1,
+    "id": projectName,
     "name": projectName,
     "version": "1.0.0",
     "authors": [],
