@@ -8,7 +8,7 @@ export default defineConfig({
 	},
 	source: {
 		entry: {
-			index: "./control/index.tsx",
+			index: "./src/control/index.tsx",
 		},
 	},
 	output: {

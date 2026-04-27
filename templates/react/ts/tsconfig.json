@@ -21,7 +21,6 @@
     "noUnusedParameters": true
   },
   "include": [
-    "view",
-    "control"
+    "src",
   ]
 }
