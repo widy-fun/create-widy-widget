@@ -15,11 +15,11 @@ export default defineConfig({
 		cleanDistPath: false,
 		filenameHash: false,
 		distPath: {
-			root: "dist/view",
-			js: "",
+			root: 'dist/view',
+			js: '',
+			css: '',
 		},
 		assetPrefix: "./",
-		injectStyles: true,
 		copy: [{ from: "manifest.json", to: "../manifest.json" }],
 	},
 	performance: {

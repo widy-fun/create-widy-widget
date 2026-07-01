@@ -17,9 +17,9 @@ export default defineConfig({
 		distPath: {
 			root: "dist/view",
 			js: "",
+			css: "",
 		},
 		assetPrefix: "./",
-		injectStyles: true,
 		copy: [{ from: "manifest.json", to: "../manifest.json" }],
 	},
 	performance: {

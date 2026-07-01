@@ -1,6 +1,6 @@
 {
   "name": "create-widy-widget",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -26,5 +26,8 @@
   },
   "bin": {
     "create-widy-widget": "index.js"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.1"
   }
 }

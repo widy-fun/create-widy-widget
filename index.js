@@ -1,31 +1,29 @@
 #!/usr/bin/env node
 
-const fs = require('node:fs');
-const path = require('node:path');
-const prompts = require('prompts');
-const { green, cyan } = require('kolorist');
-
+const fs = require("node:fs");
+const path = require("node:path");
+const prompts = require("prompts");
+const { green, cyan } = require("kolorist");
 
 const FRAMEWORKS = [
   {
-    name: 'react',
-    display: 'React',
+    name: "react",
+    display: "React",
     color: cyan,
   },
 ];
 
 const VARIANTS = [
   {
-    name: 'ts',
-    display: 'TypeScript',
+    name: "ts",
+    display: "TypeScript",
     color: green,
   },
   {
-    name: 'js',
-    display: 'JavaScript',
+    name: "js",
+    display: "JavaScript",
     color: cyan,
   },
- 
 ];
 
 async function init() {
@@ -34,59 +32,57 @@ async function init() {
   try {
     result = await prompts([
       {
-        type: 'text',
-        name: 'projectName',
-        message: 'Project name:',
-        initial: 'widy-widget'
+        type: "text",
+        name: "projectName",
+        message: "Project name:",
+        initial: "widy-widget",
       },
       {
-        type: 'select',
-        name: 'framework',
-        message: 'Select a framework:',
+        type: "select",
+        name: "framework",
+        message: "Select a framework:",
         choices: FRAMEWORKS.map((f) => ({
           title: f.color(f.display),
-          value: f.name
-        }))
+          value: f.name,
+        })),
       },
       {
-        type: 'select',
-        name: 'language',
-        message: 'Select a variant:',
+        type: "select",
+        name: "language",
+        message: "Select a variant:",
         choices: VARIANTS.map((f) => ({
           title: f.color(f.display),
-          value: f.name
-        }))
-      }
+          value: f.name,
+        })),
+      },
     ]);
   } catch (cancelled) {
     console.log(cancelled.message);
     return;
   }
 
-  const { projectName, framework,language } = result;
+  const { projectName, framework, language } = result;
 
-  const manifest= {
-    "manifest_version": 1,
-    "id": projectName,
-    "name": projectName,
-    "version": "1.0.0",
-    "authors": [],
-    "description": "",
-    "repository": "",
-    "scopes": [],
-    "connect_src": [],
-
-};
+  const manifest = {
+    manifest_version: 1,
+    id: projectName,
+    name: projectName,
+    version: "1.0.0",
+    authors: [],
+    description: "",
+    repository: "",
+    scopes: [],
+  };
 
   const root = path.join(process.cwd(), projectName);
-  const templateDir = path.resolve(__dirname, 'templates', framework,language);
-  const manifestPath = path.resolve(root, 'manifest.json');
+  const templateDir = path.resolve(__dirname, "templates", framework, language);
+  const manifestPath = path.resolve(root, "manifest.json");
 
   if (!fs.existsSync(root)) {
     fs.mkdirSync(root, { recursive: true });
   }
 
-  fs.writeFileSync(manifestPath,JSON.stringify(manifest));
+  fs.writeFileSync(manifestPath, JSON.stringify(manifest));
 
   console.log(`\nScaffolding project in ${root}...`);
 
